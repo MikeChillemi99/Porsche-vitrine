@@ -178,17 +178,19 @@ body {
 .porsche-title {
     font-weight: bold;
     font-size: 13.75rem;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: -1;
     overflow: hidden;
-    margin-top: 15rem;
 }
 
 .porsche-title h1 {
     display: flex;
+    align-items: center;
 }
 
-/* Animation titre */
 .porsche-title h1 span {
     display: inline-block;
     opacity: 0;
@@ -212,17 +214,14 @@ body {
 }
 /* Fin animation titre */
 
-.car-img {
-    margin-top: 10rem;
-}
-
 /* Animation image */
 .car-img {
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.6s ease, transform 0.6s ease;
     animation: fadeIn 0.6s ease forwards;
-    animation-delay: 1.3s; /* Adjust this based on the title animation duration */
+    animation-delay: 1.3s;
+    margin-top: 10rem;
 }
 
 @keyframes fadeIn {

@@ -93,6 +93,14 @@ const carPrice = document.getElementById('car-price');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 
+// Reload animation
+const porscheTitle = document.querySelector('.porsche-title h1');
+const animationTitle = document.querySelector('.car-title','.car-title h1');
+const animationImg = document.querySelector('.car-img');
+const animationInfos = document.querySelector('.car-infos');
+const titleContainer = document.querySelector('.title-container');
+const chevrons = document.querySelectorAll('.title-container i');
+
 let currentItem = 0;
 
 function showCar(car) {
@@ -104,8 +112,27 @@ function showCar(car) {
     carMaxSpeed.textContent = item.maxspeed;
     carPrice.textContent = item.price;
     document.body.style.background = item.bgColor;
+}
 
-    restartAnimations();
+function resetAnimation(element) {
+    element.style.animation = 'none';
+    element.offsetHeight;
+    element.style.animation = '';
+}
+
+function resetTitleAnimation() {
+    const spans = porscheTitle.querySelectorAll('span');
+    spans.forEach(span => {
+        span.style.animation = 'none';
+        span.offsetHeight; 
+        span.style.animation = '';
+    });
+}
+
+function resetChevronAnimations() {
+    chevrons.forEach(chevron => {
+        resetAnimation(chevron);
+    });
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -119,6 +146,11 @@ nextBtn.addEventListener('click', function(){
         currentItem = 0;
     }
     showCar(currentItem);
+    resetTitleAnimation();
+    resetAnimation(animationTitle);
+    resetAnimation(animationImg);
+    resetAnimation(animationInfos);
+    resetChevronAnimations();
 })
 
 prevBtn.addEventListener('click', function(){
@@ -128,4 +160,9 @@ prevBtn.addEventListener('click', function(){
         currentItem = cars.length - 1;
     }
     showCar(currentItem);
+    resetTitleAnimation();
+    resetAnimation(animationTitle);
+    resetAnimation(animationImg);
+    resetAnimation(animationInfos);
+    resetChevronAnimations();
 })
