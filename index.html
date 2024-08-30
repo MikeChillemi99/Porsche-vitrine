@@ -29,11 +29,15 @@
     <!-- Fin header -->
     <div class="main-container">
         <div class="title-container">
-            <i class="fa-solid fa-chevron-left"></i>
+            <button class="prev-btn">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
             <div class="car-title">
-                <h1>991 S/T</h1>
+                <h1 id="car-model">991 S/T</h1>
             </div>
-            <i class="fa-solid fa-chevron-right"></i>
+            <button class="next-btn">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
         <div class="porsche-title">
             <h1>
@@ -41,28 +45,28 @@
             </h1>
         </div>
         <div class="car-img">
-            <img src="assets/porsche-normal.webp" alt="Porsche ecusson">
+            <img id="img" src="assets/New/porsche-normal 1.png" alt="Porsche">
         </div>
         <div class="car-infos">
             <div class="car-infos-left">
                 <div class="acceleration">
-                    <h3>3,7 s</h3>
+                    <h3><span id="car-acceleration">3,7</span> s</h3>
                     <h3>Accélération 0 - 100 km/h</h3>
                 </div>
                 <div class="underline"></div>
                 <div class="power">
-                    <h3>525 ch</h3>
+                    <h3><span id="car-power">525</span> ch</h3>
                     <h3>Puissance</h3>
                 </div>
                 <div class="underline"></div>
                 <div class="max-speed">
-                    <h3>300 km</h3>
+                    <h3><span id="car-max-speed">300</span> km</h3>
                     <h3>Vitesse maximale</h3>
                 </div>
             </div>
             <div class="car-infos-right">
                 <div class="price">
-                    <h3>CHF 367'400,00</h3>
+                    <h3>CHF <span id="car-price">367'400,00</span></h3>
                 </div>
                 <div class="underline-red"></div>
                 <div class="buttons">
@@ -87,5 +91,6 @@
         <h1>© 2024 Porsche | Mentions légales | Politique de confidentialité</h1>
     </div>
     <!-- Fin footer -->
+    <script src="app.js"></script>
 </body>
 </html>
