@@ -22,7 +22,27 @@ body {
     align-items: center;
     background: linear-gradient(rgba(153, 153, 153, 1), rgba(255, 255, 255, 0));
     font-size: 0.75rem;
+    position: relative;
 }
+
+.menu, .logo, .my-account {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.6s ease forwards;
+}
+
+/* Animation header */
+.menu { animation-delay: 1s; }
+.logo { animation-delay: 1s; }
+.my-account { animation-delay: 1s; }
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Fin animation header */
 
 .menu {
     display: flex;
@@ -33,11 +53,11 @@ body {
     width: 200px;
 }
 
-.menu svg{
+.menu svg {
     cursor: pointer;
 }
 
-.logo img{
+.logo img {
     width: 50px;
     height: 50px;
 }
@@ -51,7 +71,7 @@ body {
     width: 200px;
 }
 
-.my-account i{
+.my-account i {
     font-size: 2rem;
     padding: 0.5rem;
 }
@@ -76,12 +96,20 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInTitleContainer 0.6s ease forwards;
+    animation-delay: 0.5s;
 }
 
 .title-container i{
     font-size: 3rem;
     padding: 0.5rem;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInChevron 0.6s ease forwards;
+    transition: transform 0.3s ease;
 }
 
 .car-title {
@@ -89,23 +117,111 @@ body {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInCarTitle 0.6s ease forwards;
+    animation-delay: 1.2s; 
 }
 
 .car-title h1{
     font-size: 2rem;
     padding: 2px 14px;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInH1 0.6s ease forwards;
+    animation-delay: 1.8s; 
 }
+
+/* Animation titre */
+@keyframes fadeInTitleContainer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInCarTitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInH1 {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.title-container i.fa-chevron-left {
+    animation-delay: 2.4s;
+}
+
+.title-container i.fa-chevron-right {
+    animation-delay: 2.4s;
+}
+@keyframes fadeInChevron {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Fin animation titre */
 
 .porsche-title {
     font-weight: bold;
     font-size: 13.75rem;
     position: absolute;
     z-index: -1;
+    overflow: hidden;
 }
+
+.porsche-title h1 {
+    display: flex;
+}
+
+/* Animation titre */
+.porsche-title h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideUp 0.6s ease forwards;
+}
+
+.porsche-title h1 span:nth-child(1) { animation-delay: 0s; }
+.porsche-title h1 span:nth-child(2) { animation-delay: 0.1s; }
+.porsche-title h1 span:nth-child(3) { animation-delay: 0.2s; }
+.porsche-title h1 span:nth-child(4) { animation-delay: 0.3s; }
+.porsche-title h1 span:nth-child(5) { animation-delay: 0.4s; }
+.porsche-title h1 span:nth-child(6) { animation-delay: 0.5s; }
+.porsche-title h1 span:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Fin animation titre */
 
 .car-img {
     margin-top: 0rem;
 }
+
+/* Animation image */
+.car-img {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 1.3s; /* Adjust this based on the title animation duration */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Fin animation image */
 
 .car-infos {
     width: 45%;
@@ -119,7 +235,20 @@ body {
     border-radius: 20px;
     position: absolute;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 2s;
 }
+/* Animation car infos */
+/* Base styles */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Fin animation car infos */
 
 .car-infos-left {
     width: 40%;
@@ -127,24 +256,33 @@ body {
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 2.6s;
 }
 
 .acceleration {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
 }
 
 .power {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
 }
 
 .max-speed {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
 }
 
 .underline {
@@ -153,7 +291,27 @@ body {
     margin-top: 1rem;
     margin-bottom: 1rem;
     background: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineGrow 0.6s ease forwards;
+    animation-delay: 3.7s;
 }
+
+/* Animation left */
+.acceleration { animation-delay: 2.8s; }
+.power { animation-delay: 3s; }
+.max-speed { animation-delay: 3.2s; }
+
+.acceleration .underline { animation-delay: 2.9s; }
+.power .underline { animation-delay: 3.1s; }
+.max-speed .underline { animation-delay: 3.3s; }
+
+@keyframes underlineGrow {
+    to {
+        transform: scaleX(1);
+    }
+}
+/* Fin animation left */
 
 .car-infos-right {
     width: 50%;
@@ -162,6 +320,10 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 3.5s;
 }
 
 .underline-red {
@@ -170,10 +332,18 @@ body {
     margin-top: 1rem;
     margin-bottom: 1rem;
     background: #D5001C;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineGrow 0.6s ease forwards;
+    animation-delay: 3.7s;
 }
 
 .buttons {
     padding: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+    animation-delay: 3.9s;
 }
 
 .buttons button {
@@ -185,8 +355,23 @@ body {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     margin: 0.25rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: buttonFadeIn 0.6s ease forwards;
 }
 
+/* Animation bouttons */
+.buttons button:nth-child(1) { animation-delay: 4.1s; }
+.buttons button:nth-child(2) { animation-delay: 4.3s; }
+.buttons button:nth-child(3) { animation-delay: 4.5s; }
+
+@keyframes buttonFadeIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Fin animation bouttons */
 
 /* Fin du style du main container */
 /* Début du style du footer */
@@ -201,5 +386,22 @@ body {
     font-size: 0.5rem;
     position: fixed;
     bottom: 0;
+    overflow: hidden;
 }
+.footer h1 {
+    margin: 0; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease forwards;
+    animation-delay: 1s;
+}
+/* Animation footer */
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fin animation footer */
 /* Fin du style du footer */
