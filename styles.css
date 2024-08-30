@@ -20,7 +20,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(rgba(153, 153, 153, 0.5), rgba(255, 255, 255, 0.5));
+    background: linear-gradient(rgba(153, 153, 153, 1), rgba(255, 255, 255, 0));
     font-size: 0.75rem;
 }
 
@@ -93,22 +93,22 @@ body {
 
 .car-title h1{
     font-size: 2rem;
+    padding: 2px 14px;
 }
 
 .porsche-title {
     font-weight: bold;
     font-size: 13.75rem;
     position: absolute;
-    margin-bottom: 3rem;
     z-index: -1;
 }
 
 .car-img {
-    margin-bottom: 3rem;
+    margin-top: 0rem;
 }
 
 .car-infos {
-    width: 33%;
+    width: 45%;
     height: 175px;
     display: flex;
     flex-direction: row;
@@ -122,27 +122,69 @@ body {
 }
 
 .car-infos-left {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 2rem;
+    padding: 1rem;
 }
 
-.car-infos-left span {
-    align-items: start;
+.acceleration {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.car-infos-left h3 {
-    align-items: end;
+.power {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.max-speed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .underline {
     height: 0.15rem;
-    width: 17.5rem;
+    width: 22rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     background: black;
+}
+
+.car-infos-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.underline-red {
+    height: 0.15rem;
+    width: 9rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #D5001C;
+}
+
+.buttons {
+    padding: 1rem;
+}
+
+.buttons button {
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin: 0.25rem;
 }
 
 
@@ -155,7 +197,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(153, 153, 153, 0.5));
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(153, 153, 153, 1));
     font-size: 0.5rem;
     position: fixed;
     bottom: 0;
