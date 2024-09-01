@@ -100,10 +100,18 @@ const animationImg = document.querySelector('.car-img');
 const animationInfos = document.querySelector('.car-infos');
 const titleContainer = document.querySelector('.title-container');
 const chevrons = document.querySelectorAll('.title-container i');
+const carInfosLeft = document.querySelector('.car-infos-left');
+const carInfosRight = document.querySelector('.car-infos-right');
+const buttons = document.querySelectorAll('.buttons button');
+const accelerationElement = document.querySelector('.acceleration');
+const powerElement = document.querySelector('.power');
+const maxSpeedElement = document.querySelector('.max-speed');
+const underlineElements = document.querySelectorAll('.underline');
+const underlineRedElement = document.querySelector('.underline-red');
 
 let currentItem = 0;
 
-function showCar(car) {
+function fnShowCar(car) {
     const item = cars[car];
     carModel.textContent = item.model;
     carImg.src = item.img;
@@ -114,29 +122,67 @@ function showCar(car) {
     document.body.style.background = item.bgColor;
 }
 
-function resetAnimation(element) {
+function fnResetAnimation(element) {
     element.style.animation = 'none';
     element.offsetHeight;
     element.style.animation = '';
 }
 
-function resetTitleAnimation() {
+function fnResetMovingAnimations() {
+    chevrons.forEach(chevron => {
+      fnResetAnimation(chevron);
+    });
+    buttons.forEach(button => {
+      fnResetAnimation(button);
+    });
     const spans = porscheTitle.querySelectorAll('span');
     spans.forEach(span => {
-        span.style.animation = 'none';
-        span.offsetHeight; 
-        span.style.animation = '';
+      fnResetAnimation(span);
+    }); 
+    underlineElements.forEach(underline => {
+      fnResetAnimation(underline);
     });
+    fnResetAnimation(underlineRedElement); 
 }
 
-function resetChevronAnimations() {
-    chevrons.forEach(chevron => {
-        resetAnimation(chevron);
-    });
+function fnResetButtonsgAnimations() {
+  buttons.forEach(button => {
+    fnResetAnimation(button);
+  });
+}
+
+function fnResetTitlegAnimations() {
+  const spans = porscheTitle.querySelectorAll('span');
+  spans.forEach(span => {
+    fnResetAnimation(span);
+  }); 
+}
+
+function fnResetUnderlineAnimations() {
+  underlineElements.forEach(underline => {
+    fnResetAnimation(underline);
+  });
+  fnResetAnimation(underlineRedElement); 
+}
+
+function fnResetCarInfosAnimations() {
+  fnResetAnimation(animationTitle);
+  fnResetAnimation(animationImg);
+  fnResetAnimation(animationInfos);
+  fnResetAnimation(carInfosLeft);
+  fnResetAnimation(carInfosRight);
+  fnResetAnimation(accelerationElement);
+  fnResetAnimation(powerElement);
+  fnResetAnimation(maxSpeedElement);
+}
+
+function fnResetAllAnimations() {
+  fnResetMovingAnimations();
+  fnResetCarInfosAnimations();
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-    showCar(currentItem);
+    fnShowCar(currentItem);
 });
 
 nextBtn.addEventListener('click', function(){
@@ -145,12 +191,8 @@ nextBtn.addEventListener('click', function(){
     {
         currentItem = 0;
     }
-    showCar(currentItem);
-    resetTitleAnimation();
-    resetAnimation(animationTitle);
-    resetAnimation(animationImg);
-    resetAnimation(animationInfos);
-    resetChevronAnimations();
+    fnShowCar(currentItem);
+    fnResetAllAnimations();
 })
 
 prevBtn.addEventListener('click', function(){
@@ -159,10 +201,6 @@ prevBtn.addEventListener('click', function(){
     {
         currentItem = cars.length - 1;
     }
-    showCar(currentItem);
-    resetTitleAnimation();
-    resetAnimation(animationTitle);
-    resetAnimation(animationImg);
-    resetAnimation(animationInfos);
-    resetChevronAnimations();
+    fnShowCar(currentItem);
+    fnResetAllAnimations();
 })
