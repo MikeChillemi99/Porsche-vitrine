@@ -414,3 +414,64 @@ body {
 
 /* Fin animation footer */
 /* Fin du style du footer */
+
+/* Media Queries */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .car-infos {
+        width: 80%;
+        height: auto;
+        flex-direction: column;
+        padding: 1rem;
+        bottom: 3rem;
+    }
+
+    .car-infos-left, .car-infos-right {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .car-infos-left {
+        justify-content: center;
+    }
+
+    .underline, .underline-red {
+        width: 100%;
+    }
+
+    .acceleration, .power, .max-speed {
+        justify-content: center;
+        padding: 0.5rem 0;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    .car-infos {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        padding: 0.5rem;
+        bottom: 2rem;
+    }
+
+    .car-infos-left, .car-infos-right {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .car-infos-left {
+        justify-content: center;
+    }
+
+    .underline, .underline-red {
+        width: 100%;
+    }
+
+    .acceleration, .power, .max-speed {
+        justify-content: center;
+        padding: 0.5rem 0;
+    }
+}
